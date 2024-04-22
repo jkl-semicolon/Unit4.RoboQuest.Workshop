@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model robots {
+  id     Int    @id @default(autoincrement())
+  name   String @db.VarChar(50)
+  color  String @db.VarChar(50)
+  userid Int
+  users  users? @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  id       Int      @id @default(autoincrement())
+  username String   @unique @db.VarChar(50)
+  password String   @db.VarChar(50)
+  robots   robots[]
+}
