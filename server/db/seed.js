@@ -45,7 +45,7 @@ const seed = async () => {
     }
     log('created robots...')
     log('database seeded!');
-  } catch (err) {
+  } catch(err) {
     log(err);
   }
 }
