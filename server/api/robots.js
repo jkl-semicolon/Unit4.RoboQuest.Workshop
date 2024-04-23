@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
 })
 
 // update your own robots
-router.put('/:id', myFunc(), async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
     const robot = await prisma.robots.update({
       data: {

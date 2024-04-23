@@ -5,6 +5,7 @@ import { log } from 'console';
 import 'dotenv/config';
 import {router as usersRouter} from './auth/auth.js';
 import {router as robotsRouter} from './api/robots.js';
+import bcrypt from 'bcrypt';
 
 const server = express();
 const PORT = process.env.PORT || 3000;

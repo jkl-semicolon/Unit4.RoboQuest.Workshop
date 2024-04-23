@@ -12,12 +12,12 @@ model robots {
   name   String @db.VarChar(50)
   color  String @db.VarChar(50)
   userid Int
-  users  users? @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users  users  @relation(fields: [userid], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model users {
   id       Int      @id @default(autoincrement())
   username String   @unique @db.VarChar(50)
-  password String   @db.VarChar(50)
+  password String   @db.VarChar(255)
   robots   robots[]
 }
